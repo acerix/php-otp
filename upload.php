@@ -1,6 +1,6 @@
 <?php
 
-if (!empty($_FILES['data']) && $file['error']==0) {
+if (!empty($_FILES['data']) && $_FILES['data']['error']==0) {
 	
 	$file = $_FILES['data'];
 

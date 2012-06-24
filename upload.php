@@ -6,7 +6,6 @@ if (!empty($_FILES['data']) && $_FILES['data']['error']==0) {
 
 	$otps = dirname(__FILE__).'/otps/';
 
-	$random = fopen('/dev/urandom','rb');
 
 	header('Content-Type: application/octet-stream');
 	header('Content-Disposition: attachment; filename="'.$file['name'].'"');
@@ -20,7 +19,7 @@ if (!empty($_FILES['data']) && $_FILES['data']['error']==0) {
 		$out = $uploaded ^ file_get_contents($otps.$uid);
 	}
 	else {
-		$otp = fread($random, strlen($uploaded));
+		$otp = file_get_contents('/dev/urandom', NULL, NULL, NULL, strlen($uploaded));
 		$out = $uploaded ^ $otp;
 		$uid = sha1($out);
 		file_put_contents($otps.$uid, $otp);

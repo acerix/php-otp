@@ -1,43 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<title>one time padder service</title>
-<meta name="description" content="Submit a file to download it XORed with a random one time pad which we store securely. Upload that data to download it XORed with the OTP, which produces the original file." />
-<meta name="keywords" content="one time pad,file vault,file upload,whistleblower,XOR OTP" />
-<link rel="icon" href="//kanux.org/static/icon.png" type="image/png" />
-<link rel="stylesheet" type="text/css" href="//kanux.org/static/style.css" />
+	<meta charset="utf-8">
+	<title>one time padder service</title>
+	<meta name="description" content="Submit a file to download it XORed with a random one time pad which we store securely. Upload that data to download it XORed with the OTP, ie: the original file." />
+	<meta name="keywords" content="one time pad,file vault,file upload,whistleblower,XOR OTP" />
+	<link rel="icon" href="//kanux.org/static/icon.png" type="image/png" />
 </head>
-<body>
-
-<div id="page">
+<body style="margin:30px 50px;">
 
 <div id="header">
-<h1>one time padder</h1>
+	<h1>one time padder</h1>
 </div>
 
 <div id="content">
 
-<div style="margin:0 auto;text-align:center;">
-<table style="margin:0 auto;">
-<form action="upload.php" method="post" enctype="multipart/form-data">
-<tr>
-	<td>SUBMIT:</td><td><input type="file" name="data" /></td>
-	<td><input type="submit" value="Upload" /></td>
-</tr>
-</form>
-</table>
-</div>
-<br />
-<p>Upload a file to download a copy of it, encoded with a one time pad.</p>
-<p>Upload the encoded file to download it encoded with the same one time pad, producing the original file.</p>
-</div>
+	<form action="upload.php" method="post" enctype="multipart/form-data">
+		<input type="file" name="data" />
+		<input type="submit" value="upload" />
+	</form>
+
+	<br />
+
+	<p>Upload a file to download a copy of it, encoded with a one time pad.</p>
+	<p>Upload the encoded file later on to download a copy after it is encoded with the same one time pad, ie: the original file.</p>
+
 </div>
 
-<div id="legal">
-	<a href="//github.com/acerix/php-otp">git source</a>
+<div id="footer">
+	<a href="http://github.com/acerix/php-otp">git source</a>
+	 - <a href="http://otp.kanux.org/">one time pad service</a>
 </div>
 
 </body>
 </html>
-

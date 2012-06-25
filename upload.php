@@ -20,9 +20,9 @@ if (!empty($_FILES['data']) && $_FILES['data']['size']) {
 	else {
 		$otp = file_get_contents('/dev/urandom', NULL, NULL, NULL, strlen($uploaded));
 		$out = $uploaded ^ $otp;
-		print($out);
 		$uid = sha1($out);
-		file_put_contents($otp_dir.$uid, $otp);
+		if (file_put_contents($otp_dir.$uid, $otp))
+			print($out);
 	}
 
 }
